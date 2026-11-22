@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#A85B5B"/>
+  <rect x="24" y="24" width="352" height="252" rx="20" fill="#ffffff" fill-opacity="0.11" stroke="#ffffff" stroke-opacity="0.55"/>
+  <text x="200" y="124" font-size="22" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="white">Кодові імена</text>
+  <text x="200" y="167" font-size="15" font-family="Arial, sans-serif" text-anchor="middle" fill="white">КОМАНДА</text>
+  <circle cx="200" cy="215" r="21" fill="#ffffff" fill-opacity="0.2"/>
+</svg>
