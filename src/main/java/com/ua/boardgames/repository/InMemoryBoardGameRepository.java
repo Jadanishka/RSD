@@ -14,22 +14,42 @@ public class InMemoryBoardGameRepository implements BoardGameRepository {
     private long nextId = 1;
 
     @Override
-    public List<BoardGame> findAll() {
+    public synchronized List<BoardGame> findAll() {
         return new ArrayList<>(games.values());
     }
 
     @Override
-    public Optional<BoardGame> findById(Long id) {
+    public synchronized Optional<BoardGame> findById(Long id) {
         return Optional.ofNullable(games.get(id));
     }
 
     @Override
-    public BoardGame save(BoardGame game) {
+    public synchronized BoardGame save(BoardGame game) {
         if (game.getId() == null) {
             game.setId(nextId);
             nextId++;
         }
         games.put(game.getId(), game);
         return game;
+    }
+    @Override
+    public synchronized List<BoardGame> findByCategory(String category) {
+        List<BoardGame> result = new ArrayList<>();
+        for (BoardGame game : games.values()) {
+            if (game.getCategory().equalsIgnoreCase(category)) {
+                result.add(game);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public synchronized void deleteById(Long id) {
+        games.remove(id);
+    }
+
+    @Override
+    public synchronized void deleteAll() {
+        games.clear();
     }
 }
